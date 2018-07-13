@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+{% block title %}REGISTRO{% endblock %}
+
+{% block content %}
+<div class="row">
+    <div class="col push-s3 s6">
+  <form method="post">
+    {% csrf_token %}
+    {% for field in form %}
+      <p>
+        {{ field.label_tag }}<br>
+        {{ field }}
+        {% for error in field.errors %}
+          <p style="color: red">{{ error }}</p>
+        {% endfor %}
+      </p>
+    {% endfor %}
+    <button type="submit">Sign up</button>
+  </form>
+    </div>
+</div>
+{% endblock %}

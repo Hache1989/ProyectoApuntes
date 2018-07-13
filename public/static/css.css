@@ -1,0 +1,23 @@
+.nav-wrapper li a:hover {background-color:rgba(0,99,168,0.1)}
+
+
+
+/* label focus color */
+ .input-field input:focus + label {
+   color: rgb(0,99,168) !important;
+ }
+ /* label underline focus color */
+ .row .input-field input:focus {
+   border-bottom: 1px solid rgb(0,99,168) !important;
+   box-shadow: 0 1px 0 0 rgb(0,99,168) !important;
+    color: rgb(0,99,168)!important;
+ }
+
+ i.icon-blue:focus {
+    color: rgb(0,99,168)!important;
+}
+
+/* icon prefix focus color */
+.input-field .prefix.active {
+   color: rgb(0,99,168)!important;
+}
