@@ -9,5 +9,6 @@ urlpatterns = [
     url('profile', login_required(views.profilePage), name="profilePage"),
     url('login', auth_views.login, {'template_name': 'user/loginPage.html'}, name="loginPage"),
     url('logout', auth_views.logout, name="logoutPage"),
+    url('settings',views.settingsPage, name="settingsPage"),
 ]
 

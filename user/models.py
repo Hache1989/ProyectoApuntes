@@ -1,5 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import User
+from academics.models import Study
 
 
 class Profile(models.Model):
@@ -7,6 +8,8 @@ class Profile(models.Model):
     bio = models.TextField(max_length=500, blank=True)
     location = models.CharField(max_length=30, blank=True)
     birth_date = models.DateField(null=True, blank=True)
+    degree = models.ForeignKey(Study, on_delete=models.CASCADE, blank=True, null=True)
+    pic = models.TextField(max_length=500, blank=True, null=True)
 
     def __str__(self):
-        return str(self.bio +" - " +self.location)
+        return str(self.user.username)

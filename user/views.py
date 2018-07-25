@@ -1,6 +1,8 @@
 from django.shortcuts import render,redirect
-from .forms import signupForm, loginForm
+from .forms import signupForm, loginForm, userForm
 from django.contrib.auth import login, authenticate
+from django.contrib.auth.models import User
+
 
 
 def signupPage(request):
@@ -19,6 +21,19 @@ def signupPage(request):
 
 def profilePage(request):
     return render(request, 'user/profilePage.html', {})
+
+def settingsPage(request):
+    if request.method == 'POST':
+        form = userForm(request.POST)
+        if form.is_valid():
+            user = User.objects.get(username=request.user.username)
+            user.profile.bio = request.POST['bio']
+            print (user.profile.bio)
+            user.profile.save()
+            return redirect('profilePage')
+    else:
+        form = userForm(instance=request.user.profile)
+    return render(request, 'user/settingsPage.html',{'form':form})
 
 
 

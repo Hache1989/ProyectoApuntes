@@ -1,0 +1,105 @@
+{% extends 'base.html' %}
+
+{% block title %}
+PROYECTO APUNTES | {{ subject.name | upper }}
+{% endblock %}
+
+{% block content %}
+<br>
+<div class="row">
+    <div class="col s12 l8">
+        <div class="card">
+            <div class="card-content">
+                <h1 style="margin-top:10px; margin-bottom: 10px;font-size:25px; text-align: center">{{ subject.code }} - {{ subject.name }}</h1>
+                <p>Tasa de aprobados, nota media, mediana, percentiles, numero de estudiantes que cursaron, etc. Todo ello calculado con notas de la base de datos.</p>
+
+                <p>En vez de ficheros pdf podríamos poner algo así: https://www.mathjax.org</p>
+
+                <div class="divider" style="margin-top:10px; margin-bottom: 10px"></div>
+
+                <p><b>COORDINADORES:</b></p>
+                <ul>
+                    <li>usuario 1</li>
+                    <li>usuario 1</li>
+                    <li>usuario 1</li>
+                    <li>usuario 1</li>
+                </ul>
+
+                <div class="divider" style="margin-top:10px; margin-bottom: 10px"></div>
+
+                <p><b>MODULOS:</b></p>
+
+                {% if moduls %}
+                    <ul>
+                    {% for modul in moduls %}
+                    <li>Nombre: {{ modul }} </li>
+                        <div>
+                            <p>Descripcion: {{ modul.description }}</p>
+                        </div>
+                    {% endfor %}
+                    </ul>
+                {% else %}
+                    <ul>
+                        <li>No hay Modulos.</li>
+                    </ul>
+                {% endif %}
+
+                <div class="divider" style="margin-top:10px; margin-bottom: 10px"></div>
+
+                <p><b>REFERENCIAS:</b></p>
+
+                {% if references %}
+                    <ul>
+                    {% for reference in references %}
+                    <li>Nombre: {{ reference }} - url: {{ reference.url }} </li>
+                    {% endfor %}
+                    </ul>
+                {% else %}
+                    <ul>
+                        <li>No hay Referencias.</li>
+                    </ul>
+                {% endif %}
+
+
+
+            </div>
+        </div>
+    </div>
+
+    <div class="col s12 l4">
+        <div class="card">
+            <div class="card-content">
+                <h4 style="font-size:22px; text-align:center">ALGO CARGADO CON AJAX:</h4>
+                <div id="ajax" style="min-height:100px; text-align:center">
+                      <div class="preloader-wrapper big active">
+                        <div class="spinner-layer spinner-blue">
+                            <div class="circle-clipper left">
+                                 <div class="circle"></div>
+                            </div>
+                            <div class="gap-patch">
+                                <div class="circle"></div>
+                            </div>
+                            <div class="circle-clipper right">
+                                <div class="circle"></div>
+                            </div>
+                        </div>
+                      </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+ <script>
+$.ajax({
+    url: '127.0.0.1:8000/academy/prueba',
+    type: 'get', // This is the default though, you don't actually need to always mention it
+    success: function(data) {
+        setTimeout(function(){ $("#ajax").html(data);}, 1000);},
+    failure: function(data) {
+        $("#ajax").html("Error al cargar el módulo.");
+    }
+});
+
+</script>
+{% endblock %}

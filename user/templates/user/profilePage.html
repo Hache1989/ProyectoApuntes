@@ -3,4 +3,287 @@
 
 {% block title %}PROYECTO APUNTES | PROFILE{% endblock %}
 
-{% block content %}<p>{{user.profile}}</p>{% endblock %}
+{% block content %}
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.min.js"></script>
+<div class="row" style="margin-top:20px">
+
+    <div class="col s12 m3">
+        <div class="card">
+            <div class="card-content">
+                <div style="text-align:center">
+                    <img class="circle responsive-img"  style="width:70%" src="{{ user.profile.pic }}" />
+                    <p style="font-size:20px; color: #42a5f5"><b>{{ user }}</b></p>
+                    <p>{{ user.profile.degree }}</p>
+                    <p>{{ user.profile.location }}</p>
+                    <p>Desde: {{ user.date_joined | date:"d-m-Y" }}</p>
+                    <div class="divider" style="margin-top:10px; margin-bottom:10px"></div>
+                    <p>Seguidores: 10 | Seguidos: 2</p>
+                    <p>Miembro de 5 grupos.</p>
+                    <div class="divider" style="margin-top:10px; margin-bottom:10px"></div>
+                    <p>{{ user.profile.bio }}</p>
+                    <div class="divider" style="margin-top:10px; margin-bottom:10px"></div>
+                    <p>Perfil de Github: www.github.com/holajfbfyn</p>
+                    <p>Perfil de Linkedin: www.github.com/holajfbfyn</p>
+                    <p>Perfil de Facebook: www.github.com/holajfbfyn</p>
+                    <p>Perfil de Twitter: www.github.com/holajfbfyn</p>
+                    <p>Perfil de Instagram: www.github.com/holajfbfyn</p>
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col s12 m6">
+        <div class="card">
+           <div class="card-content">
+                    <div style="text-align:center"><h4><i class="material-icons">school</i> Horas de estudio</h4></div>
+
+               <canvas id="myChart" style="height:150px !important;width:100%"></canvas>
+
+<script>
+var ctx = document.getElementById("myChart").getContext('2d');
+var myChart = new Chart(ctx, {
+    type: 'bar',
+    data: {
+        labels: ["Cálculo", "Discreta", "Sistemas", "Empresa", "Programación"],
+        datasets: [{
+            label: 'Horas de estudio',
+            data: [40, 32, 45, 27, 66],
+            backgroundColor: [
+                'rgba(255, 99, 132, 0.2)',
+                'rgba(54, 162, 235, 0.2)',
+                'rgba(255, 206, 86, 0.2)',
+                'rgba(75, 192, 192, 0.2)',
+                'rgba(153, 102, 255, 0.2)'
+            ],
+            borderColor: [
+                'rgba(255,99,132,1)',
+                'rgba(54, 162, 235, 1)',
+                'rgba(255, 206, 86, 1)',
+                'rgba(75, 192, 192, 1)',
+                'rgba(153, 102, 255, 1)'
+            ],
+            borderWidth: 1
+        }]
+    },
+    options: {
+        scales: {
+            yAxes: [{
+                ticks: {
+                    beginAtZero:true
+                }
+            }]
+        }
+    }
+});
+</script>
+           </div>
+        </div>
+
+        <div class="card">
+            <div class="card-content">
+               <div class="row  grey lighten-5" style="padding-top: 5px;margin-bottom:0px">
+                   <div class="col m2" style="text-align: center">
+                       <img class="circle responsive-img" style="width:70%" src="https://www.gcfaprendelibre.org/files/personage/image/11/R_p.png"/>
+                   </div>
+                   <div class="col m10 valign-wrapper">
+                               <p class="valign">Héctor ha comentado un post de Matemáticas...</p>
+
+                   </div>
+                   <div class="col m12" style="padding-bottom: 0px; margin-bottom:5px">
+                       <div class="row" style="padding-bottom: 0px; margin-bottom:5px">
+                           <div class="col m2 push-m6" style="color:#1e88e5;text-align:right">
+                               <p><i class="material-icons right">message</i>3</p>
+                           </div>
+                           <div class="col m2 push-m6" style="color:#66bb6a;text-align: right">
+                               <p><i class="material-icons right">thumb_up</i>10</p>
+                           </div>
+                           <div class="col m2 push-m6" style="color:#e53935;text-align: right">
+                               <p><i class="material-icons right">thumb_down</i>1</p>
+                           </div>
+                       </div>
+                   </div>
+               </div>
+
+                <div class="divider" style="margin-top:10px; margin-bottom:10px"></div>
+
+                <div class="row  grey lighten-5" style="padding-top: 5px;margin-bottom:0px">
+                   <div class="col m2" style="text-align: center">
+                       <img class="circle responsive-img" style="width:70%" src="https://www.gcfaprendelibre.org/files/personage/image/11/R_p.png"/>
+                   </div>
+                   <div class="col m10 valign-wrapper">
+                               <p class="valign">Héctor ha comentado un post de Matemáticas...</p>
+
+                   </div>
+                   <div class="col m12" style="padding-bottom: 0px; margin-bottom:5px">
+                       <div class="row" style="padding-bottom: 0px; margin-bottom:5px">
+                           <div class="col m2 push-m6" style="color:#1e88e5;text-align:right">
+                               <p><i class="material-icons right">message</i>3</p>
+                           </div>
+                           <div class="col m2 push-m6" style="color:#66bb6a;text-align: right">
+                               <p><i class="material-icons right">thumb_up</i>10</p>
+                           </div>
+                           <div class="col m2 push-m6" style="color:#e53935;text-align: right">
+                               <p><i class="material-icons right">thumb_down</i>1</p>
+                           </div>
+                       </div>
+                   </div>
+                 </div>
+
+
+                <div class="divider" style="margin-top:10px; margin-bottom:10px"></div>
+
+                <div class="row  grey lighten-5" style="padding-top: 5px;margin-bottom:0px">
+                   <div class="col m2" style="text-align: center">
+                       <img class="circle responsive-img" style="width:70%" src="https://www.gcfaprendelibre.org/files/personage/image/11/R_p.png"/>
+                   </div>
+                   <div class="col m10 valign-wrapper">
+                               <p class="valign">Héctor ha comentado un post de Matemáticas...</p>
+
+                   </div>
+                   <div class="col m12" style="padding-bottom: 0px; margin-bottom:5px">
+                       <div class="row" style="padding-bottom: 0px; margin-bottom:5px">
+                           <div class="col m2 push-m6" style="color:#1e88e5;text-align:right">
+                               <p><i class="material-icons right">message</i>3</p>
+                           </div>
+                           <div class="col m2 push-m6" style="color:#66bb6a;text-align: right">
+                               <p><i class="material-icons right">thumb_up</i>10</p>
+                           </div>
+                           <div class="col m2 push-m6" style="color:#e53935;text-align: right">
+                               <p><i class="material-icons right">thumb_down</i>1</p>
+                           </div>
+                       </div>
+                   </div>
+                 </div>
+
+
+
+                <div class="divider" style="margin-top:10px; margin-bottom:10px"></div>
+
+                <div class="row  grey lighten-5" style="padding-top: 5px;margin-bottom:0px">
+                   <div class="col m2" style="text-align: center">
+                       <img class="circle responsive-img" style="width:70%" src="https://www.gcfaprendelibre.org/files/personage/image/11/R_p.png"/>
+                   </div>
+                   <div class="col m10 valign-wrapper">
+                               <p class="valign">Héctor ha comentado un post de Matemáticas...</p>
+
+                   </div>
+                   <div class="col m12" style="padding-bottom: 0px; margin-bottom:5px">
+                       <div class="row" style="padding-bottom: 0px; margin-bottom:5px">
+                           <div class="col m2 push-m6" style="color:#1e88e5;text-align:right">
+                               <p><i class="material-icons right">message</i>3</p>
+                           </div>
+                           <div class="col m2 push-m6" style="color:#66bb6a;text-align: right">
+                               <p><i class="material-icons right">thumb_up</i>10</p>
+                           </div>
+                           <div class="col m2 push-m6" style="color:#e53935;text-align: right">
+                               <p><i class="material-icons right">thumb_down</i>1</p>
+                           </div>
+                       </div>
+                   </div>
+                 </div>
+
+
+
+
+                <div class="divider" style="margin-top:10px; margin-bottom:10px"></div>
+
+                <div class="row  grey lighten-5" style="padding-top: 5px;margin-bottom:0px">
+                   <div class="col m2" style="text-align: center">
+                       <img class="circle responsive-img" style="width:70%" src="https://www.gcfaprendelibre.org/files/personage/image/11/R_p.png"/>
+                   </div>
+                   <div class="col m10 valign-wrapper">
+                               <p class="valign">Héctor ha comentado un post de Matemáticas...</p>
+
+                   </div>
+                   <div class="col m12" style="padding-bottom: 0px; margin-bottom:5px">
+                       <div class="row" style="padding-bottom: 0px; margin-bottom:5px">
+                           <div class="col m2 push-m6" style="color:#1e88e5;text-align:right">
+                               <p><i class="material-icons right">message</i>3</p>
+                           </div>
+                           <div class="col m2 push-m6" style="color:#66bb6a;text-align: right">
+                               <p><i class="material-icons right">thumb_up</i>10</p>
+                           </div>
+                           <div class="col m2 push-m6" style="color:#e53935;text-align: right">
+                               <p><i class="material-icons right">thumb_down</i>1</p>
+                           </div>
+                       </div>
+                   </div>
+                 </div>
+
+
+            </div>
+        </div>
+
+    </div>
+    <div class="col s12 m3">
+        <div class="row">
+            <div class="card">
+                <div class="card-content">
+                    <div style="text-align:center"><h4>  <i class="material-icons">view_day</i> Calendario</h4></div>
+                    <div class="row light-blue lighten-3" style="padding-top:10px;padding-bottom:10px">
+                        <div class="col m2"><p>27</p></div>
+                        <div class="col m19"><p>Examen de matemáticas.</p></div>
+                    </div>
+
+                    <div class="row  red lighten-3" style="padding-top:10px;padding-bottom:10px">
+                        <div class="col m2"><p>27</p></div>
+                        <div class="col m19"><p>Examen de matemáticas.</p></div>
+                    </div>
+
+                    <div class="row  purple lighten-3" style="padding-top:10px;padding-bottom:10px">
+                        <div class="col m2"><p>27</p></div>
+                        <div class="col m19"><p>Examen de matemáticas.</p></div>
+                    </div>
+
+                    <div class="row  indigo lighten-3" style="padding-top:10px;padding-bottom:10px">
+                        <div class="col m2"><p>27</p></div>
+                        <div class="col m19"><p>Examen de matemáticas.</p></div>
+                    </div>
+
+                    <div class="row  teal lighten-3" style="padding-top:10px;padding-bottom:10px">
+                        <div class="col m2"><p>27</p></div>
+                        <div class="col m19"><p>Examen de matemáticas.</p></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="card">
+                <div class="card-content">
+                    <div style="text-align:center"><h4>  <i class="material-icons">note_add</i> Notas</h4></div>
+                    <div class="row" style="padding-top:10px;padding-bottom:10px">
+                       <div class="progress light-blue lighten-5">
+                            <div class="determinate light-blue lighten-3" style="width: 20%"></div>
+                       </div>
+                    </div>
+
+                    <div class="row" style="padding-top:10px;padding-bottom:10px">
+                        <div class="progress red lighten-5">
+                            <div class="determinate red lighten-3" style="width: 60%"></div>
+                       </div>
+                    </div>
+
+                    <div class="row" style="padding-top:10px;padding-bottom:10px">
+                        <div class="progress purple lighten-5">
+                            <div class="determinate purple lighten-3" style="width: 60%"></div>
+                       </div>
+                    </div>
+
+                    <div class="row" style="padding-top:10px;padding-bottom:10px">
+                        <div class="progress indigo lighten-5" style="height:10px;">
+                            <div class="determinate indigo lighten-3" style="width: 90%"></div>
+                       </div>
+                    </div>
+
+                    <div class="row" style="padding-top:10px;padding-bottom:10px">
+                        <div class="progress teal lighten-5">
+                            <div class="determinate teal lighten-3" style="width: 60%"></div>
+                       </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
